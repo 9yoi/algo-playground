@@ -1,0 +1,59 @@
+/*
+NOTES:
+
+== BASIC STRUCTURE ==
+
+var LinkedList = function () {
+  this.head = null;
+  this.tail = null;
+}
+
+var Node = function (value) {
+  this.value = value;
+  this.next = null;
+}
+
+== BASE CASE ==
+//if there is nothing in linkedlist
+if (!head) {  
+  return head
+}
+
+- while (node)
+- while (head)
+
+== METHODS ==
+
+LinkedList.prototype.MethodName = function () {
+  
+}
+
+- INSTANSTIATE
+  - var list = new LinkedList();
+
+- ADD NODE 
+  - if there is no head, add node to head
+  - if there is a tail, link tail up
+  - always update tail to new node
+
+  var newNode = new Node(val);
+  if (! list.head) {
+    list.head = newNode;
+  }
+  ...
+
+
+- REMOVE HEAD
+  - update current head to head.next
+  - return old head
+
+- CONTAINS
+  - set node to head
+  - while (node)
+    - look for node.val === target ==> return true
+    - keep updating node to node.next
+  - if not found return false;
+
+
+
+*/
