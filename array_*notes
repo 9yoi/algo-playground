@@ -1,2 +1,11 @@
 reverse: use while loop and swap in place
 get an element: binary search
+
+Binary Search
+
+Terminating conditions for while loop
+- When low > high
+
+
+Return:
+- index or the element

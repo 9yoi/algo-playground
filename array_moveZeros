@@ -1,0 +1,36 @@
+/*
+use 2 pointers
+initialize read and write index at end
+concept: always write if read is not zer
+
+while read >= 0
+- move read pointer left
+- if not zero
+  - grab read pointer and write
+- if zero
+  - do not write. move read pointer to next
+*/
+
+var arr = [1,2,3,4,0,22,0,0,3];
+
+function arrangeZeros (arr) {
+  let read = arr.length - 1;
+  let write = arr.length - 1;
+
+  while (read >= 0) {
+    if (arr[read] !== 0) {
+      arr[write] = arr[read];
+      write --;
+    } 
+    read --;   
+  }
+
+  while (write >=0) {
+    arr[write] = 0;
+    write --
+  }
+  return arr;
+}
+
+console.log(arrangeZeros(arr));
+
