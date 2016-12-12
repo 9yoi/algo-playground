@@ -1,0 +1,55 @@
+/*
+Given a sorted array of integers, return the low and high index of the given key. Return -1 if not found. The array length can be in millions with lots of duplicates.
+Approach:
+- function to find low
+  - while low <= high, continue
+    - if mid >= target, update high to mid - 1
+    - else update low to mid + 1
+    - update mid 
+  - return arr[low]
+- function to find high
+  - while low <= high, continue
+    - if mid <= target, update low to mid + 1
+    - else update high to mid - 1
+    - update mid
+  - return arr[high]
+*/
+
+function findLow(arr, target) {
+  var low = 0;
+  var high = arr.length - 1;
+  var mid = Math.floor((high - low) / 2);
+
+  while (low <= high) {
+    if (arr[mid] >= target ) {
+      high = mid - 1;
+    } else {
+      low = mid + 1
+    }
+    mid = low + Math.floor((high - low)/2);
+  }
+
+  return low
+}
+
+function findHigh(arr, target) {
+  var low = 0;
+  var high = arr.length - 1;
+  var mid = Math.floor((high - low) / 2);
+
+  while (low <= high) {
+    if (arr[mid] <= target ) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+    mid = low + Math.floor((high - low)/2);
+  }
+
+  return high
+}
+
+var arr = [1,2,5,5,5,5,5,10]
+console.log(findLow(arr, 5));
+console.log(findHigh(arr, 5));
+
