@@ -1,6 +1,10 @@
 reverse: use while loop and swap in place
 get an element: binary search
 
+##Moving through the array 
+- Iterate and update pointers
+- Use pointers to move either iteratively (while) or recursively (update params)
+
 Binary Search
 
 Terminating conditions for while loop

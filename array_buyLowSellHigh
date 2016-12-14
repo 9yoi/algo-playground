@@ -1,0 +1,33 @@
+/*
+Given a list of day stock prices (integers for simplicity), find the maximum single sell profit.
+
+- Initialize buy at first element of array, and sell at second element
+- Initialize global profile
+- Iterate through array until second last elem
+  - For every successive element, 
+  - Check if elem < buy. Update buy. and sell. 
+  - If elem > sell, update sell.
+- Return global profit
+
+*/
+
+function findSell (arr) {
+  let buy = arr[0];
+  let sell = arr[1];
+  let profit = sell - buy;
+
+  for (var i = 1; i < arr.length; i++) {
+    if (arr[i] < buy) {
+      buy = sell = arr[i];
+    }
+    if (arr[i] > sell) {
+      sell = arr[i]
+    }
+    profit = sell - buy;
+  }
+  return [buy, sell, profit];
+}
+
+var arr = [12,5,4,19];
+
+console.log(findSell(arr));
