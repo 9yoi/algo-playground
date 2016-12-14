@@ -1,25 +1,38 @@
-let partition = function(arr, low, high) {
-  let pivot_value = arr[low];
-  console.log(pivot_value);
-  let i = low;
+/*
+SUBROUTINE
+- set pivot
+- initialize pointers (low, high)
+- while low pointer < high
+  - low pointer: check if elem < pivot. if so increment to next
+  - high pointer: check if elem > pivot. if so decrement to next
+  - swap items at low and high pointer
+- move pivot to location of high pointer
+- return index
+
+Call subroutine on left and right of pivot
+
+*/
+
+function partition (arr, low, high) {
+  let pivot = arr[low];
+  let i =  low;
   let j = high;
 
   while (i < j) {
 
-    while (arr[i] <= pivot_value && i <= high) {
-      i++;
+    while (arr[i] <= pivot) {
+      i ++;
     }
 
-    while (arr[j] > pivot_value) {
-      j--;
+    while (arr[j] > pivot) {
+      j --;
     }
 
+    //!
     if (i < j) {
-      // swap arr[i], arr[j]
       let temp = arr[i];
       arr[i] = arr[j];
       arr[j] = temp;
-      console.log('i', i, arr[i], 'j',  j, arr[j], '+', arr);
     } else {
       break;
     }
@@ -27,22 +40,20 @@ let partition = function(arr, low, high) {
   }
 
   arr[low] = arr[j];
-  arr[j] = pivot_value;
+  arr[j] = pivot;
 
-  // return the pivot index
   return j;
-};
+}
 
-let quick_sort_rec = function(a, l, h) {
-  if (h > l) {
-    let pivot_index = partition(a, l, h);
-    quick_sort_rec(a, l, pivot_index - 1);
-    quick_sort_rec(a, pivot_index + 1, h);
+function quickSort (arr, low, high) {
+  if (low < high) {
+     var pivotIndex = partition(arr, low, high);
+     quickSort(arr, low, pivotIndex - 1);
+     quickSort(arr, pivotIndex + 1, high);
   }
-};
+  return arr;
+}
 
-let quick_sort = function(a) {
-  quick_sort_rec(a, 0, a.length - 1);
-};
+var arr = [55,23,26,2,18,78,23,8,2,3]
 
-quick_sort([55,23,26,2,18,78,23,8,2,3]);
+console.log(quickSort(arr, 0, arr.length - 1));
