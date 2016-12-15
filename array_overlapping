@@ -1,0 +1,61 @@
+/*
+Merge overlapping intervals
+Input: [{}, {}]
+Output: Condense [{}]
+Constraints: Optimize
+Edge: ? Nothing left/ terminate? 
+
+- Create new output []
+- Iterate: For every object in input
+  - Input[1,8] / [2,8] Output[1,5] ==> Update Output to [1,8]
+  - Input [6,8] Output [1,5] ==> Update Output to [1,5] [6,8] 
+- Return output
+
+*/
+
+let mergeOverlap = (arr) => {
+ var output = [arr[0]];
+ arr.forEach(pair => {
+  var left = pair.first;
+  var right = pair.second
+  var outputIndex = determinePair(output, left) || 0;
+  console.log(output[outputIndex], 'output');
+
+  var outputLeft = output[outputIndex].first ;
+  var outputRight = output[outputIndex].second;
+
+  if (left >= outputLeft && left <= outputRight) {
+    if (right > outputRight) {
+      output[outputIndex].second = right;
+    }
+  }
+
+  if (left > outputRight) {
+    output.push(pair);
+  }
+
+ });
+ return output;
+}
+
+ function determinePair (output, first) {
+  for (var i = 0; i < output.length; i++) {
+    var outputLeft = output[i].first;
+    var outputRight = output[i].second;
+    if (first >= outputLeft && first <= outputRight) {  
+      return i;
+    }
+  }
+ }
+
+var numbers = [
+{first: 1, second: 5 },
+{first: 3, second: 7},
+{first: 4, second: 6},
+{first: 6, second: 8},
+{first: 10, second: 12},
+{first: 11, second: 15 }
+];
+
+console.log(mergeOverlap(numbers));
+

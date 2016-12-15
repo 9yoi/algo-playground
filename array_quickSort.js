@@ -11,6 +11,8 @@ SUBROUTINE
 
 Call subroutine on left and right of pivot
 
+Notes: use while loop to keep repeating the steps as long as conditions are not met
+
 */
 
 function partition (arr, low, high) {
