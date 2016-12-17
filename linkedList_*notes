@@ -54,6 +54,8 @@ LinkedList.prototype.MethodName = function () {
     - keep updating node to node.next
   - if not found return false;
 
+  - always rmb to update head and tail
+
 
 
 */
