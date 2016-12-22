@@ -7,6 +7,12 @@ function BST (val) {
 }
 
 
+/*
+Check val against this.valu to decide whether to move left or right
+If left/right === null, insert new node
+Else move left/right and call function again
+*/
+
 BST.prototype.push = function (val) {
 
   if (val < this.value) {
@@ -22,9 +28,6 @@ BST.prototype.push = function (val) {
       this.right.push(val)
     }
   }
-    else {
-
-    }
 }
 
 BST.prototype.contains = function (target) {
@@ -37,6 +40,16 @@ BST.prototype.contains = function (target) {
   }
 }
   
+BST.prototype.depthFirstLog = function (cb) {
+  cb(this.value);
+  if (this.left) {
+    this.left.depthFirstLog(callBack);
+  }
+  if (this.right) {
+    this.right.depthFirstLog(callBack);
+  }
+}
+
 
 var bst = new BST (1);
 bst.push(5);
