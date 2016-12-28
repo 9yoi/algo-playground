@@ -50,11 +50,42 @@ BinaryHeap.prototype.swap = function (childIndex, parentIndex) {
   this._heap[parentIndex] = child;
 }
 
+BinaryHeap.prototype.bubbleDown = function () {
+  var indexParent = 0;
+  var parent = this._heap[0];
+  var child = [indexParent * 2 + 1, indexParent * 2 + 2]
+  var indexMin = null;
+  this._heap[child[0]] < this._heap[child[1]] ? indexMin = child[0] : indexMin = child[1];
+  
+  // get min child
+  // while parent is > than min child
+    // swap
+    // update parent and child
+
+  while (indexMin < this._heap.length - 1 && !this._compare(this._heap[0], this._heap[indexMin])) {
+    this.swap(indexMin, indexParent);
+    indexParent = indexMin;
+    var child = [indexParent * 2 + 1, indexParent * 2 + 2];
+    this._heap[child[0]] < this._heap[child[1]] ? indexMin = child[0] : indexMin = child[1];
+  }
+}
+
+BinaryHeap.prototype.remove = function () {
+  var min = this._heap[0];
+  this._heap[0] = this._heap[this._heap.length - 1];
+  this._heap.splice(this._heap.length - 1);
+  this.bubbleDown();
+  return min;
+}
+
 var heap = new BinaryHeap ();
 heap.insert(4);
 heap.insert(1);
 heap.insert(2);
 heap.insert(1);
 heap.insert(0);
+console.log(heap._heap);
+console.log(heap.remove());
+console.log(heap.remove());
 console.log(heap._heap);
 
