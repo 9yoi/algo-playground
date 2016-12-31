@@ -38,7 +38,21 @@ USE A QUEUE!
 */
 
 //BFS
-
+function bfs (graph, root) {
+  var queue = [];
+  var visited = {};
+  queue.push(root);
+  while (queue.length > 0) {
+    var item = queue.shift();
+    if (!visited[item]) {
+      visited[item] = true;
+      console.log(item);
+      for (var node in graph[item].edges) {
+        queue.push(node);
+      }
+    }
+  }
+}
 
 // example graph
 var graph = 
@@ -47,5 +61,5 @@ var graph =
   '3': { edges: { '1': 1 } },
   '4': { edges: { '2': 2 } } }
 
-dfs(graph,1);
-
+dfs(graph, 1);
+bfs(graph, 1);
