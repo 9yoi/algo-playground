@@ -19,7 +19,12 @@ function Node (val) {
     // if 2 or less, just allocate one
 
 function createMinBT(array, start, end) {
-  while (end - start > 2) {
+
+  if (end < start) {
+    return null;
+  }
+
+  if (end - start > 2) {
     var midIndex = Math.ceil((end - start)/ 2) + start;
     console.log(array[midIndex]);
     var node =  new Node (array[midIndex]);
@@ -41,8 +46,7 @@ function createMinBT(array, start, end) {
     return node;
   }
 
-  return;
 }
 
-var arr = [1, 2, 3, 4, 5, 6];
+var arr = [1, 2, 3, 4, 5, 6, 7];
 console.log(createMinBT (arr, 0, arr.length - 1)); 
