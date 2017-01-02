@@ -1,0 +1,27 @@
+if (50 & 1) {
+  console.log('odd')
+} else {
+  console.log('even');
+}
+
+&
+- Returns 1 if both are 1
+
+|
+- returns 1 if either is 1
+- if both are 1, returns 1 too
+
+^
+- returns 1 if one is 1 and the other 0
+
+~
+- changes 1 to 0 and 0 to 1
+
+Two's complement
+- flips all the bits, then adds 1 to the end
+
+<<
+- moves to the left
+- multiply by 2, shift << 1
+- multiply by 4, shift << 2
+- multiply by 3, shift << 1 then add 1
