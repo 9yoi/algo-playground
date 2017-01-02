@@ -7,24 +7,25 @@ function Node (val) {
 
 function inOT (node) {
   if (node !== null) {
-    iot(node.left);
+    inOT (node.left);
     visit(node);
-    iot (node.right);
+    inOT (node.right);
   }
 }
 
 function preOT (node) {
   if (node !== null) {
     visit(node);
-    iot(node.left);
-    iot (node.right);
+    preOT(node.left);
+    preOT(node.right);
   }
 }
 
 function postOT (node) {
   if (node !== null) {
-    iot(node.left);
-    iot (node.right);
+    postOT(node.left);
+    postOT(node.right);
     visit(node);
   }
 }
+

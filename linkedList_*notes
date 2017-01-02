@@ -11,6 +11,7 @@ var LinkedList = function () {
 var Node = function (value) {
   this.value = value;
   this.next = null;
+  this.previous = null; //for doubly-linked
 }
 
 == BASE CASE ==
@@ -28,13 +29,14 @@ LinkedList.prototype.MethodName = function () {
   
 }
 
-- INSTANSTIATE
+- INSTANTIATE
   - var list = new LinkedList();
 
 - ADD NODE 
   - if there is no head, add node to head
-  - if there is a tail, link tail up
+  - link tail.next to new node
   - always update tail to new node
+  - 
 
   var newNode = new Node(val);
   if (! list.head) {
@@ -47,6 +49,10 @@ LinkedList.prototype.MethodName = function () {
   - update current head to head.next
   - return old head
 
+- REMOVE NODE
+  - PrevNode.next = node.next
+  - Node.next.prev = node.prev
+
 - CONTAINS
   - set node to head
   - while (node)
@@ -55,6 +61,10 @@ LinkedList.prototype.MethodName = function () {
   - if not found return false;
 
   - always rmb to update head and tail
+
+  TECHNIQUES
+  - Runner (P1 moves node.next, P2 moves node.next.next)
+  - Recursion
 
 
 
