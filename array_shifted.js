@@ -47,13 +47,11 @@ function findNum (arr, num) {
 }
 
 function binarySearch (arr, num, start, end) {
-  console.log(arr, num, start, end);
   if (start > end) {
     return - 1;
   } 
   var midPoint = Math.floor((start + end) / 2);
   if (num === arr[midPoint]) {
-    console.log(arr[midPoint]);
     return midPoint;
   }
   if (num > arr[midPoint]) {
