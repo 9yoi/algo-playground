@@ -50,12 +50,14 @@ function partition (arr, low, high) {
 function quickSort (arr, low, high) {
   if (low < high) {
      var pivotIndex = partition(arr, low, high);
+     console.log(pivotIndex, 'pivotIndex');
+     console.log(arr, 'arr');
      quickSort(arr, low, pivotIndex - 1);
      quickSort(arr, pivotIndex + 1, high);
   }
   return arr;
 }
 
-var arr = [55,23,26,2,18,78,23,8,2,3]
+var arr = [55,23,26,2,18,78]
 
 console.log(quickSort(arr, 0, arr.length - 1));

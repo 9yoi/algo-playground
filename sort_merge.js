@@ -11,7 +11,6 @@ function mergeSort (arr) {
 
 
 function merge (left, right) {
-  console.log('merging left and right', left, right);
   var temp = [];
   while (left.length && right.length) {
     if (left[0] <= right[0]) {
@@ -30,7 +29,6 @@ function merge (left, right) {
 }
 
 var myArr = [34, 203, 3, 746, 200, 984, 198, 764, 9];
-console.log(mergeSort(myArr));
-
 
 /* in place */
+
