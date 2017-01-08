@@ -52,5 +52,5 @@ function findSteps (total, memo) {
   }
 }
 
-console.log(findSteps(6, memo), 'approach C');
+console.log(findSteps(6, memo));
 /*With memoization*/
