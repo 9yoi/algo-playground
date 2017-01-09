@@ -26,7 +26,6 @@ function createMinBT(array, start, end) {
 
   if (end - start > 2) {
     var midIndex = Math.ceil((end - start)/ 2) + start;
-    console.log(array[midIndex]);
     var node =  new Node (array[midIndex]);
     node.left = createMinBT(array, start, midIndex - 1);
     node.right = createMinBT(array, midIndex + 1, end);

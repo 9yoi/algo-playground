@@ -15,7 +15,7 @@ function dfs(graph, root) {
   if (!graph[root]) {
     return;
   }
-  console.log(root);
+  console.log(root); //whatever action you need for the root
   visited[root] = true;
   for (var node in graph[root].edges) {
     if (!visited[node]) {
@@ -42,13 +42,14 @@ function bfs (graph, root) {
   var queue = [];
   var visited = {};
   queue.push(root);
+  
   while (queue.length > 0) {
     var item = queue.shift();
-    if (!visited[item]) {
-      visited[item] = true;
-      console.log(item);
-      for (var node in graph[item].edges) {
-        queue.push(node);
+    console.log(item);
+    visited[item] = true;
+    for (var node in graph[item].edges) {
+      if (!visited[node]) {
+        queue.push(node);      
       }
     }
   }
