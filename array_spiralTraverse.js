@@ -1,7 +1,14 @@
+/*
+recursive approach failed to traverse spirally, 
+==> will always attemp to move right if possible.
+!! use iterative approach
+*/
+
 var arr = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16]
 ];
 
 //recursive approach
@@ -29,7 +36,8 @@ function traverseR (arr, i, j) {
   traverseR (arr, i - 1, j);
 }
 
-//traverseR(arr, 0, 0)
+traverseR(arr, 0, 0)
+
 var arrB = [
   [1, 2, 3, 4],
   [5, 6, 7, 8],
@@ -39,6 +47,7 @@ var arrB = [
 //iterative approach
 function traverseI (arr, i, j) { 
 
+  //trackers for bounds
   var startRow = 0;
   var endRow = arr[0].length - 1;
   var startCol = 0;
@@ -84,7 +93,7 @@ function traverseI (arr, i, j) {
   }
 }
 
-traverseI(arrB, 0, 0)
+//traverseI(arrB, 0, 0)
 
 
 
