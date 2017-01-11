@@ -4,25 +4,87 @@ var arr = [
   [7, 8, 9]
 ];
 
-function traverse (arr, i, j) { 
+//recursive approach
+function traverseR (arr, i, j) { 
 // base case: outofbounds
-  if (i < 0|| i > arr[0].length - 1 || !arr[i][j]) {
+  if (i < 0|| i > arr.length - 1 || arr[i][j] == null) {
     return;
   }
-  if (j < 0|| j > arr.length - 1 ) {
+  if (j < 0|| j > arr[0].length - 1 ) {
     return;
   }
-  console.log(arr[i][j]);
-  arr[i][j] = null;
+  if (arr[i][j] != null) {
+    console.log(arr[i][j]);
+    arr[i][j] = null;
+  }
+
 
 // move right ==> j++
-  traverse (arr, i, j + 1);
+  traverseR (arr, i, j + 1);
 // move down ==> i++
-  traverse (arr, i + 1, j);
+  traverseR (arr, i + 1, j);
 // move left ==> j--
-  traverse (arr, i, j - 1);
+  traverseR (arr, i, j - 1);
 // move up ==> i--
-  traverse (arr, i - 1, j);
+  traverseR (arr, i - 1, j);
 }
 
-traverse(arr, 0, 0)
+//traverseR(arr, 0, 0)
+var arrB = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16]
+];
+//iterative approach
+function traverseI (arr, i, j) { 
+
+  var startRow = 0;
+  var endRow = arr[0].length - 1;
+  var startCol = 0;
+  var endCol = arr.length - 1;
+
+  while ( j <= endRow && i <= endCol) {
+
+    // move right
+    while (j <= endCol) {
+      console.log(arr[i][j]);
+      j++;
+    }
+    j--;
+    i++;
+    startRow ++;
+
+    // move down
+    while (i <= endRow) {
+      console.log(arr[i][j]);
+      i++;
+    }
+    i--;
+    j--;
+    endCol --;
+
+    // move left
+    while (j >= startCol ) {
+      console.log(arr[i][j]);
+      j--;
+    }
+    j++;
+    i--;
+    endRow --;
+
+    // move up
+    while (i >= startRow ) {
+      console.log(arr[i][j]);
+      i--;
+    }
+    i++;
+    j++;
+    startCol ++;
+  }
+}
+
+traverseI(arrB, 0, 0)
+
+
+
