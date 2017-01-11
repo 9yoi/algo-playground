@@ -12,22 +12,27 @@ Given a list of day stock prices (integers for simplicity), find the maximum sin
 */
 
 function findSell (arr) {
+  let minSeen = arr[0];
   let buy = arr[0];
-  let sell = arr[1];
-  let profit = sell - buy;
+  let sell = arr[0];
+  let profit = 0;
 
+  // iterate
+    // update minSeen 
+    // update maxProfit (curr - minSeen)
   for (var i = 1; i < arr.length; i++) {
-    if (arr[i] < buy) {
-      buy = sell = arr[i];
+    if (arr[i] - minSeen > profit) {
+      profit = arr[i] - minSeen;
+      buy = minSeen;
+      sell = arr[i];
+    }    
+    if (arr[i] < minSeen) {
+      minSeen = arr[i];
     }
-    if (arr[i] > sell) {
-      sell = arr[i]
-    }
-    profit = sell - buy;
   }
   return [buy, sell, profit];
 }
 
-var arr = [12,5,4,19];
+var arr = [4,12,5,2];
 
 console.log(findSell(arr));
