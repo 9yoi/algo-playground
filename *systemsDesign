@@ -1,0 +1,45 @@
+## Math
+
+* ns: 10-9 of s
+* ms: 1000s
+
+* Read 1MB from disk: 20,000,000 ns 
+* Read 1MB from memory: 250,000 ns
+* ==> Memory appx 80 times faster
+
+## Scalability
+Concepts to think about
+
+### Traffic patterns
+
+* Read traffic per second: if spiky ==> cache popular entries (think about populating, refreshing, expiring)
+* Write traffic per second: if spiky ==> put input into a queue
+* What % is distributed towards each segment?
+
+### Load
+
+* Get total requests per month ==> requests per second
+* Game moves per second
+
+### Data Storage
+
+* How much of something is produced over a year
+
+### Abstract Design
+
+* Application service layer
+* Data storage layer
+
+### Failure points
+
+* Memory: Only in exceptional cases. Should only happen when there is a memory leak.
+* CPU: Most likely. If node is not used, each service request can take up considerable resources. While waiting for 2nd/3rd party requests to complete, might time out. Db: when proper indexes aren't applied and a table scan is triggered for every query/ too many joins.
+* Disk Space: Only in exceptional cases if you keep writing to new files.
+* Bandwidth: Usually not a concern unless it is a mobile client talking over non WIFI connection to your servers
+
+## Links
+* [Numbers Everyone Should Know](https://everythingisdata.wordpress.com/2009/10/17/numbers-everyone-should-know/)
+
+
+
+
