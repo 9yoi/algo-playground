@@ -26,6 +26,9 @@ Solutions for high load:
 * Load balancer to distribute load across servers. Every server contains exactly the same codebase and does not store any user-related data, like sessions or profile pictures, on local disc or memory. 
 * Sessions need to be stored in a centralized data store which is accessible to all your application servers. It can be an external database or an external persistent cache, like Redis. 
 
+Solutions for speed
+* Pre-render HTML pages on CDN/ Amazon S3
+* Asynchronicity: Informs the user that their task is in progress and inform them when done ==> RabbitMQ, ActiveMQ
 
 
 ### Data Storage
