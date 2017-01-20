@@ -5,25 +5,16 @@
 */
 
 function findProduct (arr) {
-  var results = [];
+  var results = [1];
   // find product of everything before you
-  for (var i = 0; i < arr.length; i++) {
-    if (i === 0) {
-      results[i] = 1;
-    } else {
-      results[i] = results[i-1] * arr[i-1];
-    }
+  for (var i = 1; i < arr.length; i++) {
+    results[i] = results[i-1] * arr[i-1];
   }
   // find product of everything after you
   // ==> [120, 60, 20, 5, 1]
-  var temp = 0;
-  for (var i = arr.length - 1; i>= 0; i--) {
-    console.log(i);
-    if (i === arr.length - 1) {
-      temp = 1;
-    } else {
-      temp = temp * arr[i+1];
-    }
+  var temp = 1;
+  for (var i = arr.length - 2; i>= 0; i--) {
+    temp = temp * arr[i+1];
     // change element at that index
     results[i] = results[i] * temp;
   }
