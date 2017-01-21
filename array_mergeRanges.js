@@ -2,6 +2,7 @@ const mergeRanges = function (a) {
   a.sort((a,b) => a.startTime - b.startTime);
 
   let sorted = [];
+  
   a.forEach(time => {
     let start = time.startTime;
     let end = time.endTime;
@@ -19,7 +20,6 @@ const mergeRanges = function (a) {
   })
 
   return sorted;
-
 
 }
 
