@@ -13,14 +13,6 @@ function isBalanced (root) {
   let node = item[0];
   let depth = item[1];
 
-  // push children
-  if (node.right) {
-   stack.push([node.right, depth + 1]);
-  }
-  if (node.left) {
-    stack.push([node.left, depth + 1]);
-  }
-
   // if it's a leaf node
   if (!node.right && !node.left) {
     if (depths.indexOf(depth) === -1) {
@@ -30,6 +22,14 @@ function isBalanced (root) {
         return false;
       }
     }
+  }
+
+  // push children
+  if (node.right) {
+   stack.push([node.right, depth + 1]);
+  }
+  if (node.left) {
+    stack.push([node.left, depth + 1]);
   }
 
  }
