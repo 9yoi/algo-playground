@@ -72,18 +72,21 @@ function printTable (n) {
   }
 }
 
-
-// Sums up integers from text file
-
 // Print odd numbers from 1 to 99
+function printOdd (n) {
+  for (var i = 1; i <= n; i += 2) {
+    console.log(i);
+  }
+}
 
 // Largest int value in an array
 
 // Format as 6 digit hex string
 
-console.log(reverse('cat'));
-console.log(fibonacci(8));
-console.log(fibonacciB(8));
-var fibber = new Fibber();
-console.log(fibber.fibonacci(8));
-console.log(printTable(12))
+// console.log(reverse('cat'));
+// console.log(fibonacci(8));
+// console.log(fibonacciB(8));
+// var fibber = new Fibber();
+// console.log(fibber.fibonacci(8));
+// console.log(printTable(12))
+console.log(printOdd(5))
