@@ -58,10 +58,19 @@ function fibonacciB (n) {
   return prev;
 }
 
+/* 1 2 3 4 ..
+  2 4 6 8
+*/
 // Print multiplication table
-// function printTable (12) {
-//   for (var i = 0; i < )
-// }
+function printTable (n) {
+  for (var i = 1; i <= n; i++) {
+    let string = '';  
+    for (var j = 1; j <= n; j++ ) {
+      string += ' ' + i * j;
+    }
+    console.log(string.trim());
+  }
+}
 
 
 // Sums up integers from text file
@@ -77,3 +86,4 @@ console.log(fibonacci(8));
 console.log(fibonacciB(8));
 var fibber = new Fibber();
 console.log(fibber.fibonacci(8));
+console.log(printTable(12))
