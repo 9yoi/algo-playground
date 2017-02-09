@@ -90,13 +90,11 @@ function findLargest (a) {
   return max;
 }
 
-// Format as 6 digit hex string
-
-// console.log(reverse('cat'));
-// console.log(fibonacci(8));
-// console.log(fibonacciB(8));
-// var fibber = new Fibber();
-// console.log(fibber.fibonacci(8));
-// console.log(printTable(12))
-// console.log(printOdd(5))
+console.log(reverse('cat'));
+console.log(fibonacci(8));
+console.log(fibonacciB(8));
+var fibber = new Fibber();
+console.log(fibber.fibonacci(8));
+console.log(printTable(12))
+console.log(printOdd(5))
 console.log(findLargest([1,3,7,2]))
