@@ -1,5 +1,5 @@
 // shuffle in a uniform manner in place
-
+  
 function shuffle (a) {
   for (var i = 0; i < a.length ; i++) {
     let indexSelected = randIndex(0, a.length - 1);

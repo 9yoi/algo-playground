@@ -15,4 +15,4 @@ function makeChange (total, options, index) {
   return ways;
 }
 
-console.log(makeChange(100, [25,5,1], 0))
+console.log(makeChange(100, [1,5,25], 0))
