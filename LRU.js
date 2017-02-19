@@ -5,6 +5,8 @@ get(key) - Get the value (will always be positive) of the key if the key exists 
 put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
 */
 
+/*WORK IN PROGRESS*/
+
 // init cache
 function lru (limit = 2) {
   this.size = 0;
@@ -86,7 +88,7 @@ lru.prototype.remove = function (key) {
     // update head to new value
     removedNode = this.head.value;
     this.head = this.head.next;
-      console.log(this.head, 'cache after removing least recently used')
+    console.log(this.head, 'cache after removing least recently used')
     this.head.prev = null;
 
   }
